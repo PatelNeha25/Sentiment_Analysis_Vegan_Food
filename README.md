@@ -1,33 +1,159 @@
-# Sentiment_Analysis_Vegan_Food
-Reference
+# Vegan Food Sentiment Analysis | NLP Project
 
-https://lindsaytubbstech.com/portfolio_projects/project2.html\
+## Overview
+This project analyzes public sentiment toward vegan food using Twitter data. Tweets are collected using the Twitter API and processed using Natural Language Processing (NLP) techniques. Machine Learning models are then applied to classify sentiments into Positive, Negative, and Neutral categories.
 
-https://realpython.com/python-nltk-sentiment-analysis/#compiling-data
+The goal is to understand public perception of vegan food across different countries (India, USA, Canada).
 
-https://www.analyticsvidhya.com/blog/2021/12/different-methods-for-calculating-sentiment-score-of-text/
+---
 
-Burnap et al. (2016). 140 characters to victory?: Using Twitter to predict the UK 2015 General Election. Electoral Studies. 41, 230-233.
+## Problem Statement
+Social media platforms contain large amounts of unstructured text data. Understanding public sentiment about vegan food can help:
 
-Jiang Bian, Umit Topaloglu, and Fan Yu. 2012. Towards large-scale twitter mining for drug-related adverse events. In Proceedings of the 2012 international worksho on Smart health and wellbeing. ACM, 25–32.
+- Food industry stakeholders understand consumer perception  
+- Researchers analyze dietary trends  
+- Businesses improve marketing strategies  
 
-Jimmy Lin and Dmitriy Ryaboy. 2013. Scaling big data mining infrastructure: the twitter experience. Acm SIGKDD Explorations Newsletter 14, 2 (2013), 6–19.
+This project builds a sentiment analysis system to classify tweets related to vegan food into sentiment categories.
 
-Kiritchenko et al. (2014). Sentiment Analysis of Short Informal Texts.Journal of Artificial Intelligence Research. 50, 723–762.
+---
 
-Kumar et al (2013). Twitter Data Analytics. Springer.
+## Dataset
+- Source: Twitter API (Tweepy)
+- Keywords: vegan, food, diet
+- Countries:
+  - India
+  - United States
+  - Canada
+- Data fields:
+  - Tweet text
+  - Location
+  - Likes and retweets
+  - Timestamp
 
-Martinez-Camara et al. (2014). Sentiment Analysis in Twitter. Natural Language Engineering. 20 (1), 1-28.
+---
 
-Mehdi Allahyari, Seyedamin Pouriyeh, Mehdi Assefi, Saied Safaei, Elizabeth D Trippe, Juan B Gutierrez, and Krys Kochut. 2017. A brief survey of text mining: Classification, clustering and extraction techniques. arXiv preprint arXiv:1707.02919 (2017).
+## Project Workflow
 
-O’Connor et al. (2010). From tweets to polls: linking text sentiment to public opinion time series. In Proceedings of the International AAAI Conference on Weblogs and Social Media, pp. 122–9.
+### 1. Data Collection
+- Extracted tweets using Tweepy API
+- Filtered by keywords and geolocation
+- Stored in structured format (CSV)
 
-Pang et al. (2002). Thumbs up? sentiment classification using machine learning techniques. Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 79–86.
+### 2. Data Preprocessing
+- Removed mentions, hashtags, URLs, punctuation
+- Converted text to lowercase
+- Removed stopwords
+- Applied POS tagging
+- Lemmatization
 
-Rafeeque Pandarachalil, Selvaraju Sendhilkumar, and GS Mahalakshmi. 2015. Twitter sentiment analysis for large-scale data: an unsupervised approach. Cognitive computation 7, 2 (2015), 254–262.
+### 3. Feature Engineering
+- TF-IDF Vectorization
+- Count Vectorization
 
-Si et al. (2013). Exploiting Topic based Twitter Sentiment for Stock Prediction. Proceedings of The 51st Annual Meeting of the Association for Computational Linguistics.
+### 4. Sentiment Labeling
+- Used VADER Sentiment Analyzer
+- Classified tweets as:
+  - Positive
+  - Neutral
+  - Negative
 
-Si et al. (2013). Exploiting Topic based Twitter Sentiment for Stock Prediction. Proceedings of The 51st Annual Meeting of the Association for Computational Linguistics.
-Sunmoo Yoon, Noémie Elhadad, and Suzanne Bakken. 2013. A practical approach for content mining of tweets. American journal of preventive medicine 45, 1 (2013), 122–129.
+### 5. Model Building
+Models used:
+- Support Vector Machine (SVC)
+- K-Nearest Neighbors (KNN)
+- Random Forest
+- Naive Bayes
+
+### 6. Evaluation Metrics
+- Accuracy Score
+- Confusion Matrix
+- Precision, Recall, F1-score
+
+---
+
+## Model Performance
+
+### TF-IDF Vectorizer Results
+
+| Model          | Accuracy |
+|----------------|----------|
+| SVC            | 55.81%   |
+| KNN            | 51.16%   |
+| Random Forest  | 69.76%   |
+| Naive Bayes    | 72.09%   |
+
+### Count Vectorizer Results
+
+| Model          | Accuracy |
+|----------------|----------|
+| SVC            | 69.76%   |
+| KNN            | 41.86%   |
+| Random Forest  | 60.46%   |
+| Naive Bayes    | 53.48%   |
+
+---
+
+## Key Insights
+- Most tweets are neutral in sentiment
+- Positive sentiment is higher in US and Canada compared to India
+- Discussions often revolve around health, diet, and plant-based lifestyle
+- Negative sentiment is mostly linked to processed vegan food debates
+
+---
+
+## Technologies Used
+- Python
+- Tweepy (Twitter API)
+- NLTK (Natural Language Processing)
+- Scikit-learn (Machine Learning)
+- Pandas, NumPy (Data Processing)
+- Matplotlib, Seaborn (Visualization)
+- WordCloud
+
+---
+
+## Machine Learning Pipeline
+- Text Cleaning
+- Tokenization
+- Lemmatization
+- Feature Extraction (TF-IDF / CountVectorizer)
+- Model Training
+- Evaluation
+
+---
+
+## How to Run This Project
+
+### 1. Install Dependencies
+
+pip install pandas numpy nltk tweepy scikit-learn matplotlib seaborn wordcloud
+
+### 2. Run Notebook
+Open Jupyter Notebook and execute:
+
+Vegan_Food_Sentiment_Analysis.ipynb
+
+### 3. Twitter API Setup
+Create a `keys.ipynb` file with:
+
+API_key = "your_key"
+API_key_secret = "your_secret"
+Access_token = "your_token"
+Access_token_secret = "your_token_secret"
+
+
+---
+
+## Future Improvements
+- Use deep learning models (LSTM, BERT)
+- Deploy using Streamlit or Flask
+- Improve class imbalance handling
+- Add real-time Twitter streaming analysis
+- Build interactive dashboard
+
+---
+
+## Author
+Neha Patel  
+Data Analyst | Python | SQL | Power BI | Machine Learning
